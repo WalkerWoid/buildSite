@@ -1,0 +1,752 @@
+$yellow-color: #FFE600
+$gray-color: #D0D0D0
+$dark-gray-color: #9B9A99
+$wrapper: #2C97C9
+$orange-color: #F26422
+$footer-color: #015A76
+
+@font-face
+  font-family: 'ALSSchlangesans'
+  src: url('../fonts/ALSSchlangesans-Black.eot')
+  src: local('☺'), url('../fonts/ALSSchlangesans-Black.woff') format('woff'), url('../fonts/ALSSchlangesans-Black.ttf') format('truetype'), url('../fonts/ALSSchlangesans-Black.svg') format('svg')
+  font-weight: 900
+  font-style: normal
+
+@font-face
+  font-family: 'ALSSchlangesans'
+  src: url('../fonts/ALSSchlangesans-Bold.eot')
+  src: local('☺'), url('../fonts/ALSSchlangesans-Bold.woff') format('woff'), url('../fonts/ALSSchlangesans-Bold.ttf') format('truetype'), url('../fonts/ALSSchlangesans-Bold.svg') format('svg')
+  font-weight: 700
+  font-style: normal
+
+@font-face
+  font-family: 'ALSSchlangesans'
+  src: url('../fonts/ALSSchlangesans.eot')
+  src: local('☺'), url('../fonts/ALSSchlangesans.woff') format('woff'), url('../fonts/ALSSchlangesans.ttf') format('truetype'), url('../fonts/ALSSchlangesans.svg') format('svg')
+  font-weight: 500
+  font-style: normal
+
+@font-face
+  font-family: 'ALSSchlangesans'
+  src: url('../fonts/ALSSchlangesans-Light.eot')
+  src: local('☺'), url('../fonts/ALSSchlangesans-Light.woff') format('woff'), url('../fonts/ALSSchlangesans-Light.ttf') format('truetype'), url('../fonts/ALSSchlangesans-Light.svg') format('svg')
+  font-weight: 300
+  font-style: normal
+
+@mixin borderBox()
+  box-sizing: border-box
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+
+@mixin borderRadius($bRadius)
+  border-radius: $bRadius
+  -moz-border-radius: $bRadius
+  -webkit-border-radius: $bRadius
+
+// em - расчитывается относительно велечины шрифта в своем блоке
+// rem - 1 rem будет равен велечине шрифта, заданного в html
+html, body
+  font-size: 10px
+  font-family: 'ALSSchlangesans', "Times New Roman", sans-serif
+
+.container
+  margin: 0 auto
+  max-width: 100%
+  &_center
+    width: 100%
+    display: flex
+    justify-content: center
+
+.wrapper
+  position: absolute
+  left: 0
+  background-color: $wrapper
+  height: 100%
+
+// Стили верхнего блока с цифрами
+.header
+  padding: 3rem
+  +borderBox
+  min-height: 15rem
+  &-container
+    position: relative
+    overflow: hidden
+  &__numbers
+    padding: .75em
+    font-size: 2rem
+    display: inline-block
+    border: 4px solid $yellow-color
+    border-bottom-right-radius: 1em
+    border-top-left-radius: 1em
+    transform: skew(-5deg)
+    letter-spacing: .05em
+    font-weight: 700
+    &_center
+      width: 100%
+      display: flex
+      justify-content: center
+  &__text
+    font-weight: 700
+    font-size: 1.2rem
+    line-height: 1.33em
+    color: $gray-color
+    margin-top: 1.08em
+    text-align: center
+    text-transform: uppercase
+  &_right
+    display: none
+    font-size: 2rem
+    line-height: .9em
+    text-align: center
+    text-transform: uppercase
+  &-wrapper
+    display: none
+    width: 50%
+    height: 290%
+    top: -20px
+    border-radius: 270px/100%
+    border-bottom-right-radius: 0
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+    transform: skew(10deg) translateX(-120px)
+    transform-origin: bottom
+    z-index: -1
+
+// Стили меню
+.menu
+  min-height: 5rem
+  font-size: 2.4rem
+  padding: .5em .75em
+  +borderBox
+  display: flex
+  align-items: center
+  justify-content: space-between
+  &-container
+    background-color: $yellow-color
+  &__header
+    font-weight: 700
+    line-height: 2.8rem
+  &__icon
+    width: 2.2rem
+    height: 2rem
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    &-span
+      width: 100%
+      height: .2rem
+      background-color: #000
+
+// Стили блока с картинкой балкона
+.balcony
+  width: 100%
+  height: 20rem
+  position: relative
+  &-container
+    position: relative
+    background-image: url(../images/balconyBgi.png)
+    background-position: center bottom
+    background-size: cover
+  &_right
+    height: 100%
+    display: flex
+    align-items: flex-end
+    justify-content: space-between
+  &_left
+    display: none
+    height: 100%
+    flex-direction: column
+    justify-content: center
+    padding: 3rem 10rem 3rem 3rem
+    +borderBox
+    z-index: 2
+  &__man
+    width: 16.2rem
+    margin-right: 1.2rem
+  &-orange
+    right: 17rem
+    bottom: 0
+    transform: translateY(45px)
+    position: absolute
+    width: 37rem
+    padding: .75em 1.25em
+    font-size: 2rem
+    background-color: $orange-color
+    border: .2em solid #FFFFFF
+    +borderRadius(.3em)
+    color: #FFFFFF
+    display: none
+    &__img
+      width: 2.15em
+      height: 2.5em
+      margin-right: .4em
+    &__text
+      font-weight: 700
+      line-height: 1.3em
+      text-transform: uppercase
+  &-wrapper
+    bottom: 0
+    width: 50%
+    height: 150%
+    border-radius: 430px/100%
+    border-bottom-right-radius: 0
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+    display: none
+    transform: skew(10deg)
+    transform-origin: bottom
+    &-container
+      width: 100%
+      height: 100%
+      overflow: hidden
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+
+.sponsors
+  display: flex
+  margin: auto 0 auto 0
+  align-items: center
+  &__rehau
+    width: 6.8rem
+    margin-left: 1.4rem
+    margin-right: 1.4rem
+  &__kbe
+    width: 6rem
+    height: 2.4rem
+    transform: rotate(-5deg)
+
+.kbe-container
+  width: 9rem
+  height: 5.2rem
+  border-radius: 50%
+  background-color: #fff
+  +borderRadius(50%)
+  display: flex
+  align-items: center
+  justify-content: center
+  transform: rotate(5deg)
+
+.official-text
+  font-weight: 700
+  font-size: 2.5rem
+  line-height: 1.08em
+  text-transform: uppercase
+  &_black
+    color: #000
+    font-weight: 900
+    text-align: center
+  &_orange
+    font-weight: 900
+    text-align: center
+    color: $orange-color
+    text-transform: lowercase
+    &:first-letter
+      text-transform: uppercase
+  &_white
+    color: #ffffff
+  &_yellow
+    color: $yellow-color
+
+.low-price
+  margin-top: 2rem
+  &__img
+    height: 4.4rem
+  &__text
+    line-height: 1.2em
+    &_rotate
+      transform: rotate(-3deg)
+    &_black
+      color: #000
+      font-weight: 700
+      font-size: 2.4rem
+    &_center
+      text-align: center
+    &_white
+      color: #ffffff
+      font-weight: 500
+      font-size: 1.5rem
+    &_left
+      margin-left: 1.06em
+
+// Стили блока с информацией
+.info
+  width: 100%
+  margin-top: 4rem
+  padding: 0 1.5rem
+  margin-bottom: 4.5rem
+  +borderBox
+  &__low-price-img
+    max-height: 8rem
+    max-width: calc(100% - 3rem)
+  &__low-price-text
+    width: 100%
+  &__low-price
+    margin-top: 3.5rem
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+.free-visit
+  margin-top: 3.5rem
+  background-color: $yellow-color
+  padding: .6rem
+  display: flex
+  align-items: center
+  +borderBox
+  &__img
+    width: 6.2rem
+    height: 4.9rem
+  &__text
+    margin: 0 auto
+    text-align: center
+    text-transform: uppercase
+    &_first
+      font-weight: 900
+      font-size: 2.4rem
+      line-height: 1.16em
+      letter-spacing: .27em
+    &_last
+      font-weight: 700
+      font-size: 1.6rem
+      line-height: 1.1875em
+      letter-spacing: .3em
+  &__orange
+    +borderRadius(4px)
+    border: 1px solid $orange-color
+    font-weight: 700
+    font-size: 1.4rem
+    line-height: 1.14em
+    color: $orange-color
+    display: inline-block
+    text-transform: uppercase
+    position: relative
+    margin: 0 auto
+    padding: 7px
+    transform: translateY(8px)
+    +borderBox
+    &:after
+      content: ''
+      width: 1.2rem
+      height: 1.2rem
+      position: absolute
+      left: calc(50% - .6rem)
+      top: -7px
+      border-left: .1rem solid $orange-color
+      border-bottom: .1rem solid $orange-color
+      transform: rotate(135deg)
+      background-color: #fff
+
+// серый блок
+.gray-block
+  width: 100%
+  height: 15rem
+  background-color: $dark-gray-color
+
+// Стили калькулятора рассрочки
+.calculator
+  margin-top: 3.7rem
+  padding: 0 3rem
+  &__header
+    width: 100%
+    font-weight: 900
+    font-size: 2.4rem
+    text-align: center
+    line-height: 1.125em
+
+.offers
+  margin-top: 3.3rem
+  display: flex
+  justify-content: space-around
+
+.offer
+  &-img__wrapper
+    width: 6.5rem
+    height: 6.5rem
+    background-color: $yellow-color
+    display: flex
+    align-items: center
+    justify-content: center
+    +borderRadius(50%)
+    margin: 0 auto
+    &:nth-child(1) > img
+      width: 2.5rem
+    &:nth-child(2) > img
+      width: 3.3rem
+    &:nth-child(3) > img
+      width: 2.9rem
+  &__header
+    font-size: 1rem
+    margin-top: .9em
+    line-height: 1.6em
+    text-align: center
+  &__text
+    font-size: 1.6rem
+    font-weight: 700
+    line-height: 1.1875em
+    text-align: center
+
+.ranges
+  margin-top: 3.8rem
+
+.range__top
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.range__header
+  font-size: 1.6rem
+  font-weight: 700
+  line-height: 1.1875em
+
+.range__sum
+  font-size: 2.4rem
+  font-weight: 900
+
+.range__bottom
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  & > input
+    -webkit-appearance: none
+    width: 100%
+    height: .5rem
+    margin-top: 1.3rem
+    +borderRadius(3px)
+    background: $gray-color
+    background: -webkit-linear-gradient(left, $orange-color 0%, $orange-color 0%, $gray-color 0%, $gray-color 100%)
+    &::-webkit-slider-thumb
+      -webkit-appearance: none
+      background-color: $orange-color
+      height: 1rem
+      width: 1rem
+      cursor: pointer
+      +borderRadius(50%)
+    &::-moz-range-thumb
+      -moz-appearance: none
+      background-color: $orange-color
+      height: 1rem
+      width: 1rem
+      border: none
+      cursor: pointer
+      +borderRadius(50%)
+
+.range__value
+  font-size: 1rem
+  font-weight: 500
+  line-height: 1.6em
+  color: $gray-color
+
+.range_max
+  margin: 0 0 0 auto
+
+.banks
+  margin-top: 2.4rem
+  display: flex
+  align-items: center
+  & > span
+    font-weight: 700
+    font-size: 1.5rem
+    margin-right: 1rem
+    letter-spacing: 0.03em
+  &__europe
+    width: 10rem
+  &__alpha
+    width: 8rem
+
+.total-sum__wrapper
+  background: #FFFFFF
+  margin: 4rem auto 0 auto
+  max-width: 37rem
+  +borderRadius(.6rem)
+  border: 2rem solid #F2F2F2
+  box-shadow: .4rem .4rem .4rem rgba(0, 0, 0, 0.25)
+  +borderBox
+
+.total-sum
+  width: 27rem
+  padding: 2.5rem 1rem
+  margin: 0 auto 4rem auto
+  position: relative
+  background-color: #fff
+  box-shadow: 0 .4rem .8rem rgba(0, 0, 0, 0.25)
+  transform: translateY(-2rem)
+  &__text
+    margin-top: 1.43em
+    text-align: end
+    font-size: 1.4rem
+    line-height: 1.21em
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: flex-end
+    &:first-child
+      margin-top: 0
+  &_big-text
+    width: 100%
+    display: block
+    font-size: 4rem
+    line-height: 1.075em
+  &_orange-text
+    color: $orange-color
+    font-size: 2.4rem
+    margin-left: .33em
+    line-height: 1.125em
+  &__bold-r
+    font-weight: 700
+  &__button
+    font-size: 1.4rem
+    width: 100%
+    border: none
+    color: #FFFFFF
+    margin-top: 4rem
+    font-weight: 900
+    padding: .5em 1.21em
+    +borderRadius(.42rem)
+    background-color: $orange-color
+    text-transform: uppercase
+  &__triangles
+    width: 96%
+    display: flex
+    justify-content: space-between
+    position: absolute
+    bottom: -1.1rem
+    left: 2%
+    & span
+      width: 2rem
+      height: 2rem
+      background-color: #fff
+      transform: rotate(45deg)
+      box-shadow: .4rem .4rem .4rem rgba(0, 0, 0, 0.25)
+
+// Стили футера
+.footer
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 100%
+  color: #FFFFFF
+  font-size: 2.2rem
+  font-weight: 700
+  text-transform: uppercase
+  &-container
+    height: 378px
+    width: 100%
+    background-color: $footer-color
+  &-orange
+    background-color: $orange-color
+    border: 2px dashed #fff
+    +borderRadius(.3rem)
+    padding: .7rem 1.3rem
+    display: flex
+    align-items: center
+    &__container
+      +borderBox
+      padding: 5px
+      background-color: $orange-color
+      box-shadow: .2rem .2rem .3rem rgba(0, 0, 0, 0.25)
+      display: none
+    &__text
+      font-weight: 900
+      font-size: 2.1rem
+      line-height: 2.5rem
+  &__img
+    width: 3.5rem
+    height: 3.5rem
+    margin-right: 1.4rem
+
+
+
+@media screen and (min-width: 768px)
+  .container
+    max-width: 1024px
+
+  .header
+    display: flex
+    align-items: center
+    &_right
+      display: block
+      margin: 0 auto
+
+  .menu
+    z-index: 2
+    display: block
+    &__header
+      font-weight: 500
+      text-align: center
+      text-transform: uppercase
+    &__icon
+      display: none
+
+  .balcony
+    height: 26rem
+    display: flex
+    &-container
+      background-size: 68% auto
+      background-position: center right
+      background-repeat: no-repeat
+    &_right
+      width: 52%
+      justify-content: flex-end
+    &_left
+      width: 48%
+      display: flex
+    &__man
+      margin-right: 3rem
+      width: 19.5rem
+    &-wrapper
+      display: block
+      z-index: 1
+
+  .official-text
+    font-size: 2.5rem
+
+  .sponsors
+    margin: 27px 0 auto 0
+
+  .info
+    display: none
+
+  .calculator__header
+    font-size: 3rem
+
+  .offer-img__wrapper
+    width: 12rem
+    height: 12rem
+    &:nth-child(1) > img
+      width: 4.7rem
+    &:nth-child(2) > img
+      width: 6.2rem
+    &:nth-child(3) > img
+      width: 5.3rem
+  .offer__header
+    font-size: 1.2rem
+  .offer__text
+    font-size: 2rem
+
+  .range__header
+    font-size: 2rem
+  .range__sum
+    font-size: 3rem
+  .range__value
+    font-size: 1.2rem
+
+  .banks > span
+    font-size: 2rem
+  .banks__europe
+    width: 16.3rem
+  .banks__alpha
+    width: 11.5rem
+
+  .footer-container
+    height: 12.3rem
+
+@media screen and (min-width: 1920px)
+  .container
+    max-width: 1300px
+
+  .header
+    padding: 3rem 0
+    &__numbers
+      color: #fff
+    &__text
+      color: #fff
+      font-weight: 500
+    &-container
+      position: relative
+    &-wrapper
+      display: block
+
+  .balcony
+    height: 55.4rem
+    +borderBox
+    &_right
+      width: 50%
+    &_left
+      padding: 8.4rem 10rem 8.4rem 0
+      width: 50%
+      justify-content: space-around
+    &__man
+      width: 21rem
+    &-orange
+      display: flex
+
+  .sponsors
+    margin: 87px 0 auto 0
+
+  .low-price__img
+    width: 20rem
+    height: auto
+
+  .calculator-flex
+    display: flex
+    margin-bottom: 6rem
+  .calculator__top
+    width: 70%
+  .calculator__bottom
+    width: 30%
+
+  .footer
+    justify-content: flex-start
+    &-container
+      height: 12rem
+    &__text
+      width: 100%
+      text-align: center
+    &-orange__container
+      display: block
+
+  .header_right
+    font-size: 2.4rem
+  .menu__header
+    font-size: 2.4rem
+  .official-text
+    font-size: 4rem
+  .low-price__img
+    height: auto
+    width: 41.1rem
+  .low-price__text
+    font-size: 2.4rem
+  .sponsors__rehau
+    width: 9.4rem
+    height: 9.8rem
+  .kbe-container
+    width: 12.8rem
+    height: 7.3rem
+  .sponsors__kbe
+    width: 8.6rem
+    height: auto
+  .balcony__man
+    width: 42rem
+  .calculator__header
+    font-size: 4rem
+
+  .offer-img__wrapper
+    width: 12rem
+    height: 12rem
+    &:nth-child(1) > img
+      width: 4.7rem
+    &:nth-child(2) > img
+      width: 6.2rem
+    &:nth-child(3) > img
+      width: 5.3rem
+  .offer__header
+    font-size: 1.4rem
+  .offer__text
+    font-size: 2.4rem
+
+  .range__header
+    font-size: 2.4rem
+  .range__sum
+    font-size: 4rem
+  .range__value
+    font-size: 1.4rem
+
+  .banks > span
+    font-size: 2.4rem
+  .banks__europe
+    width: 23.5rem
+  .banks__alpha
+    width: 16.5rem
